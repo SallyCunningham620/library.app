@@ -1,3 +1,12 @@
+//const newBookBtn = document.getElementById("new-book-btn");
+const newBookForm = document.getElementById("new-book-form")
+
+//newBookBtn.addEventListener('click', openForm());
+
+function openForm() {
+  document.getElementById("new-book-form").style.display = "block";
+}
+
 const myLibrary = [];
 
 function Book(title, author, pages, readBook) {
