@@ -11,19 +11,26 @@
         <div class="header" alt="Background image from Unsplash, Author is Iñaki del Olmo.">
             <h1 class="title">Sally's Library</h1>
             <button id="new-book-btn" class="new-book-btn" onclick="openForm()">Add a New Book</button>
-            <form  type="submit" action="" class="new-book-form">
-                    <h1>Add New Book</h1>
-                    <label for="title">Book Title
-                        <input type="text" placeholder="Enter Title" name="title">
-                    </label>
-                    <label for="author">Author
-                        <input type="text" placeholder="Enter Author">
-                    </label>
-                    <label for="number-pages">Number of Pages
-                        <input type="number" placeholder="Enter pages">
-                    </label>
-                    <button type="checkbox">Read</button>
-            </form>
+            <form  type="button" class="new-book-form" id="new-book-form">
+                <h1>Add New Book</h1>
+                <label for="title">Book Title
+                    <input type="text" placeholder="Enter Title" id="title" name="title">
+                </label>
+                <label for="author">Author
+                    <input type="text" placeholder="Enter Author" id="author" name="author">
+                </label>
+                <label for="number-pages">Number of Pages
+                    <input type="number" placeholder="Enter pages" id="number-page" name="number-pages" min="1">
+                </label>
+                <div>
+                    <input type="checkbox">
+                    <p>Read</p>
+                </div>
+                <div>
+                    <button type="submit" class="add-book" id="add-book">Add Book</button>
+                    <button type="button" onclick="closeForm()">Close</button>
+                </div>
+                </form>
         
         </div>
         <div class="banner"></div>
