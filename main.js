@@ -1,13 +1,18 @@
+let newFormBtn = document.getElementById("new-form-btn");
 let newBookForm = document.getElementById("new-book-form");
+let closeFormBtn = document.getElementById("close-form-btn");
 
-//newBookBtn.addEventListener('click', openForm());
+newFormBtn.addEventListener('click', openForm);
 
 function openForm() {
-  newBookForm.classList.add("open-new-book-form");
+  newBookForm.classList.add("open-new-form");
+  console.log("ouch");
 }
 
+closeFormBtn.addEventListener('click', closeForm);
+
 function closeForm() {
-  newBookForm.classList.remove("open-new-book-form");
+  newBookForm.classList.remove("open-new-form");
 }
 
 const myLibrary = [];

@@ -10,8 +10,8 @@
     <div class="library-page">
         <div class="header" alt="Background image from Unsplash, Author is Iñaki del Olmo.">
             <h1 class="title">Sally's Library</h1>
-            <button id="new-book-btn" class="new-book-btn" onclick="openForm()">Add a New Book</button>
-            <form  type="button" class="new-book-form" id="new-book-form">
+            <button type="button" id="new-form-btn" class="new-form-btn">Add a New Book</button>
+            <form class="new-book-form" id="new-book-form">
                 <h1>Add New Book</h1>
                 <label for="title">Book Title
                     <input type="text" placeholder="Enter Title" id="title" name="title">
@@ -28,7 +28,7 @@
                 </div>
                 <div>
                     <button type="submit" class="add-book" id="add-book">Add Book</button>
-                    <button type="button" onclick="closeForm()">Close</button>
+                    <button type="button" id="close-form-btn" class="close-form-btn">Close</button>
                 </div>
                 </form>
         
