@@ -11,79 +11,33 @@
         <div class="header" alt="Background image from Unsplash, Author is Iñaki del Olmo.">
             <h1 class="title">Sally's Library</h1>
             <button type="button" id="new-form-btn" class="new-form-btn">Add a New Book</button>
-            <form class="new-book-form" id="new-book-form">
+            <div class="form-div" id="form-div">
+            <form action="" class="new-book-form" id="new-book-form">
                 <h1>Add New Book</h1>
-                <label for="title">Book Title
-                    <input type="text" placeholder="Enter Title" id="title" name="title">
+                <label for="book-title">Book Title
+                    <input type="text" placeholder="Enter Title" id="book-title" name="title" maxlength="50">
                 </label>
                 <label for="author">Author
-                    <input type="text" placeholder="Enter Author" id="author" name="author">
+                    <input type="text" placeholder="Enter Author" id="author" name="author" maxlength="50">
                 </label>
                 <label for="number-pages">Number of Pages
-                    <input type="number" placeholder="Enter pages" id="number-page" name="number-pages" min="1">
+                    <input type="number" placeholder="Enter pages" id="number-pages" name="number-pages" min="1">
                 </label>
                 <div class="checkbox-div">
-                    <input type="checkbox">
-                    <p>Read</p>
+                    <input type="checkbox" id="unread-or-read">
+                    <label>Read</label>
                 </div>
                 <div>
-                    <button type="submit" class="add-book" id="add-book">Add Book</button>
+                    <button>Add Book</button>
                     <button type="button" id="close-form-btn" class="close-form-btn">Close</button>
                 </div>
-                </form>
+            </form>
+            </div>
         
         </div>
         <div class="banner"></div>
-        <div class="container">
-            <div class="top">
-                <h2>Books I want to Read</h2>
-                <div class="books-to-read">
-                    <div class="cards to-read">
-                        <div class="card">
-                            <img>
-                            <p>Title</p>
-                            <p>Author</p>
-                            <p>Number of pages</p>
-                        </div>
-                        <div class="card">
-                            <img>
-                            <p>Title</p>
-                            <p>Author</p>
-                            <p>Number of pages</p>
-                        </div>
-                        <div class="card">
-                            <img>
-                            <p>Title</p>
-                            <p>Author</p>
-                            <p>Number of pages</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bottom">
-                <h2>Books I have Read</h2>
-                <div class="books-read"></div>
-                <div class="cards read">
-                    <div class="card">
-                        <img>
-                        <p>Title</p>
-                        <p>Author</p>
-                        <p>Number of pages</p>
-                    </div>
-                    <div class="card">
-                        <img>
-                        <p>Title</p>
-                        <p>Author</p>
-                        <p>Number of pages</p>
-                    </div>
-                    <div class="card">
-                        <img>
-                        <p>Title</p>
-                        <p>Author</p>
-                        <p>Number of pages</p>
-                    </div>
-                </div>
-            </div>
+        <div class="books-container" id="books-container">
+        <!--<h2>Books I want to read and Books I have read</h2>-->
         </div>
     </div>
 
