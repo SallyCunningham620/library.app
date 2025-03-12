@@ -9,9 +9,7 @@ newFormBtn.addEventListener('click', openForm);
 
 function openForm() {
   newBookForm.classList.add("open-new-form");
-  let bookTitle = document.querySelector(".book-title");
-  bookTitle.focus();
-  bookTitle.select();
+  document.getElementById("book-title").focus();
 }
 
 closeFormBtn.addEventListener('click', closeForm);
