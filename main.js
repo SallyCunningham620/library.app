@@ -2,7 +2,6 @@ let newFormBtn = document.getElementById("new-form-btn");
 let formDiv = document.getElementById("form-div");
 let newBookForm = document.getElementById("new-book-form");
 let closeFormBtn = document.getElementById("close-form-btn");
-//let addBookBtn = document.getElementById("add-book-btn");
 let booksContainer = document.querySelector(".books-container");
 const myLibrary = [];
 
@@ -10,13 +9,16 @@ newFormBtn.addEventListener('click', openForm);
 
 function openForm() {
   newBookForm.classList.add("open-new-form");
-  console.log("hi");
+  let bookTitle = document.querySelector(".book-title");
+  bookTitle.focus();
+  bookTitle.select();
 }
 
 closeFormBtn.addEventListener('click', closeForm);
 
 function closeForm() {
   newBookForm.classList.remove("open-new-form");
+  newBookForm.reset();
 }
 
 let bookCheck = {
@@ -47,10 +49,7 @@ function addBookToLibrary(title, author, numberPages, unreadOrRead) {
     return myLibrary;
   }
 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "Yes");
-addBookToLibrary("The Fellowship of the Ring", "J.R.R. Tolkien", 398, "Yes");
-//addBookToLibrary("The Two Towers", "J.R.R. Tolkien", 327, "Yes");
-
+addBookToLibrary("Example Book The Hobbit", "J.R.R. Tolkien", 295, "No");
 function createBookCard(book) {
     console.log("Create book card");
   
@@ -84,7 +83,7 @@ function createBookCard(book) {
       unreadOrRead.classList.add("read-button");
       unreadOrRead.textContent = "Read";
     } else {
-      unreadOrRead.classList.add("read-button");
+      unreadOrRead.classList.add("unread-button");
       unreadOrRead.textContent = "Unread";
     }
     unreadOrRead.addEventListener("click", () => {
@@ -126,4 +125,5 @@ function createBookCard(book) {
     addBookToLibrary(title, author, numberPages, unreadOrRead);
     event.preventDefault();
     newBookForm.classList.remove("open-new-form");
+    newBookForm.reset();
   });
