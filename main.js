@@ -30,26 +30,26 @@ let bookCheck = {
   }
 }
 
-function createBook(title, author, numberPages, unreadOrRead) {
-    this.title = title;
-    this.author = author;
-    this.numberPages = numberPages;
-    this.unreadOrRead = unreadOrRead
-    this.id = crypto.randomUUID;
-    Object.setPrototypeOf(this, bookCheck);
+class createBook {
+    constructor(title, author, numberPages, unreadOrRead) {
+      this.title = title;
+      this.author = author;
+      this.numberPages = numberPages;
+      this.unreadOrRead = unreadOrRead;
+      this.id = crypto.randomUUID;
+      Object.setPrototypeOf(this, bookCheck);
     };
+  }
 
 function addBookToLibrary(title, author, numberPages, unreadOrRead) {  
     let book = new createBook(title, author, numberPages, unreadOrRead);
     myLibrary.push(book);
     createBookCard(book);
-    console.log(myLibrary);
     return myLibrary;
   }
 
 addBookToLibrary("Example Book The Hobbit", "J.R.R. Tolkien", 295, "No");
 function createBookCard(book) {
-    console.log("Create book card");
   
     let bookCard = document.createElement("div");
     bookCard.classList.add("card");
