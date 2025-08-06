@@ -14,13 +14,13 @@
     padding: 0;
   }
 
-  .library-page {
+.library-page {
     padding: 10px;
     background-color: var(--background-color-1);
     height: 100vh;
   }
 
-  .header {
+.header {
     background: url(./images/inaki-del-olmo-NIJuEQw0RKg-unsplash.jpg);
     display: flex;
     flex-direction: column;
@@ -33,10 +33,11 @@
     padding: 20px;
   }
 
-  .new-form-btn {
+.new-form-btn {
     width: 100px;
   }
-  .new-book-form {
+
+.new-book-form {
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -59,13 +60,13 @@
     transform: translate(-50%, -50%) scale(1);
   }
 
-  label {
+label {
     position: relative;
     width: 12rem;
     margin-bottom: 5px;
   }
   
-  input {
+input {
     padding: 5px 10px;
     border-radius: 5px;
     border: 1px solid rgb(224, 224, 224);
@@ -125,6 +126,7 @@ h2 {
   min-width: 300px;
   }
 
+/*Each Book Styling*/
 .card {
   display: flex;
   flex-direction: column;
@@ -179,6 +181,7 @@ h2 {
   transition: 0.2s background-color;
 }
 
+/*Remove book*/
 .book-card-remove-button{
   background-color: var(--background-color-4);
   padding: 12px 10px;

@@ -1,3 +1,4 @@
+/*JS Calls*/
 let newFormBtn = document.getElementById("new-form-btn");
 let formDiv = document.getElementById("form-div");
 let newBookForm = document.getElementById("new-book-form");
@@ -5,6 +6,7 @@ let closeFormBtn = document.getElementById("close-form-btn");
 let booksContainer = document.querySelector(".books-container");
 const myLibrary = [];
 
+/*Open Form*/
 newFormBtn.addEventListener('click', openForm);
 
 function openForm() {
@@ -12,6 +14,7 @@ function openForm() {
   document.getElementById("book-title").focus();
 }
 
+/*Close Form*/
 closeFormBtn.addEventListener('click', closeForm);
 
 function closeForm() {
@@ -19,6 +22,7 @@ function closeForm() {
   newBookForm.reset();
 }
 
+/*Check book status*/
 let bookCheck = {
   bookReadStatus: function() {
     if (this.unreadOrRead === "Yes") {
@@ -29,7 +33,7 @@ let bookCheck = {
     console.log(myLibrary);
   }
 }
-
+/*Creat books using form data*/
 class createBook {
     constructor(title, author, numberPages, unreadOrRead) {
       this.title = title;
@@ -41,6 +45,7 @@ class createBook {
     };
   }
 
+/*Add book to Library*/
 function addBookToLibrary(title, author, numberPages, unreadOrRead) {  
     let book = new createBook(title, author, numberPages, unreadOrRead);
     myLibrary.push(book);
@@ -48,33 +53,42 @@ function addBookToLibrary(title, author, numberPages, unreadOrRead) {
     return myLibrary;
   }
 
+/*Example book*/
 addBookToLibrary("Example Book The Hobbit", "J.R.R. Tolkien", 295, "No");
+
+/*Create and add bood card to library*/
 function createBookCard(book) {
-  
+
+  /*create card for book*/
     let bookCard = document.createElement("div");
     bookCard.classList.add("card");
     bookCard.id = book.id;
     booksContainer.appendChild(bookCard);
   
+  /*add book title to card*/
     let bookTitle = document.createElement("p");
     bookTitle.classList.add("book-title");
     bookTitle.textContent = book.title;
     bookCard.appendChild(bookTitle);
   
+  /*add author to card*/
     let author = document.createElement("p");
     author.classList.add("author");
     author.textContent = "by " + book.author;
     bookCard.appendChild(author);
   
+  /*add number of pages to card*/
     let numberPages = document.createElement("p");
     numberPages.classList.add("number-pages");
     numberPages.textContent = book.numberPages + " pages";
     bookCard.appendChild(numberPages);
   
+  /*add to buttons container to card*/
     let bookCardButtonsContainer = document.createElement("div");
     bookCardButtonsContainer.classList.add("book-card-buttons-container");
     bookCard.appendChild(bookCardButtonsContainer);
   
+  /*add buttons to container on card about read or unread*/
     let unreadOrRead = document.createElement("button");
     unreadOrRead.classList.add("book-read-button");
     if (book.unreadOrRead === "Yes") {
@@ -98,6 +112,7 @@ function createBookCard(book) {
     });
     bookCardButtonsContainer.appendChild(unreadOrRead);
 
+  /*add remove button to buttons container on card*/
     let bookRemoveButton = document.createElement("button");
     bookRemoveButton.classList.add("book-card-remove-button");
     bookRemoveButton.textContent = "Remove";
@@ -109,7 +124,7 @@ function createBookCard(book) {
 	  bookCardButtonsContainer.appendChild(bookRemoveButton);
   }
 
-
+/*Submit event for form*/
   newBookForm.addEventListener("submit", (event) => {
     let title = document.querySelector("#book-title").value;
     let author = document.querySelector("#author").value;
