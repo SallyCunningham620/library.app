@@ -17,7 +17,7 @@
 .library-page {
     padding: 10px;
     background-color: var(--background-color-1);
-    height: 100vh;
+    height: 95vh;
   }
 
 .header {
@@ -193,4 +193,13 @@ h2 {
   width: 60px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   transition: 0.2s background-color;
+}
+
+/*Git Nav*/
+.git-nav {
+  padding: 5px;
+}
+.git-nav a {
+  text-decoration: none;
+  color: rgb(70, 70, 229)
 }
