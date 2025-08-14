@@ -195,11 +195,16 @@ h2 {
   transition: 0.2s background-color;
 }
 
-/*Git Nav*/
-.git-nav {
+/*Portfolio Nav*/
+.port-nav {
   padding: 5px;
 }
-.git-nav a {
+
+.port-nav a {
   text-decoration: none;
   color: rgb(70, 70, 229)
+}
+
+.port-nav a:hover {
+  color:#fd9047;
 }
