@@ -16,21 +16,26 @@
 <!--Form to add a new book-->
             <form action="" class="new-book-form" id="new-book-form">
                 <h1>Add New Book</h1>
-                <label for="book-title">Book Title
-                    <input type="text" placeholder="Enter Title" id="book-title" name="book-title" maxlength="50" required autofocus>
-                </label>
-                <label for="author">Author
-                    <input type="text" placeholder="Enter Author" id="author" name="author" maxlength="50" required>
-                </label>
-                <label for="number-pages">Number of Pages
-                    <input type="number" placeholder="Enter pages" id="number-pages" name="number-pages" min="1" required>
-                </label>
+                <div>
+                    <label for="book-title">Book Title</label>
+                    <input type="text" placeholder="Enter Title" id="book-title" name="Book title" minlength="5" maxlength="50" required autofocus>
+                    <span class="error" aria-live="polite"></span>
+                </div>
+                <div>
+                    <label for="author">Author</label>
+                    <input type="text" placeholder="Enter Author" id="author" name="Author" minlength="1" maxlength="50" required>
+                    <span class="error" aria-live="polite"></span>
+                </div>
+                <div>
+                    <label for="number-pages">Number of Pages</label>
+                    <input type="number" placeholder="Enter pages" id="number-pages" name="number-pages" min="1">
+                </div>
                 <div class="checkbox-div">
                     <input type="checkbox" class="unread-or-read" id="unread-or-read">
                     <label>Read</label>
                 </div>
                 <div>
-                    <button>Add Book</button>
+                    <button id="add-book-btn">Add Book</button>
                     <button type="button" id="close-form-btn" class="close-form-btn">Close</button>
                 </div>
             </form>

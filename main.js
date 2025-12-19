@@ -2,8 +2,16 @@
 let newFormBtn = document.getElementById("new-form-btn");
 let formDiv = document.getElementById("form-div");
 let newBookForm = document.getElementById("new-book-form");
+let addBookBtn = document.getElementById("add-book-btn");
 let closeFormBtn = document.getElementById("close-form-btn");
 let booksContainer = document.querySelector(".books-container");
+
+const titleInput = document.getElementById("book-title");
+const authorInput = document.getElementById("author");
+
+const titleError = titleInput.nextElementSibling;
+const authorError = authorInput.nextElementSibling;
+
 const myLibrary = [];
 
 /*Open Form*/
@@ -12,6 +20,8 @@ newFormBtn.addEventListener('click', openForm);
 function openForm() {
   newBookForm.classList.add("open-new-form");
   document.getElementById("book-title").focus();
+  titleError.textContent = '';
+  authorError.textContent = '';
 }
 
 /*Close Form*/
@@ -30,10 +40,9 @@ let bookCheck = {
     } else {
       this.unreadOrRead = "Yes";
     }
-    console.log(myLibrary);
   }
 }
-/*Creat books using form data*/
+/*Create books using form data*/
 class createBook {
     constructor(title, author, numberPages, unreadOrRead) {
       this.title = title;
@@ -80,7 +89,11 @@ function createBookCard(book) {
   /*add number of pages to card*/
     let numberPages = document.createElement("p");
     numberPages.classList.add("number-pages");
-    numberPages.textContent = book.numberPages + " pages";
+    if(!book.numberPages) {
+      numberPages.textContent = "N/A pages";
+    } else {
+      numberPages.textContent = book.numberPages + " pages";
+    }
     bookCard.appendChild(numberPages);
   
   /*add to buttons container to card*/
@@ -119,17 +132,70 @@ function createBookCard(book) {
 	  bookRemoveButton.addEventListener("click", () => {
 		  bookCard.remove();
   		myLibrary.splice(myLibrary.indexOf(book), 1);
-	  	console.log(myLibrary);
 	  });
 	  bookCardButtonsContainer.appendChild(bookRemoveButton);
   }
 
+function showError(inputElement, errorSpan) {
+  errorSpan.textContent = '';
+  if (inputElement.validity.valueMissing) {
+    // If empty
+    errorSpan.textContent = "Please enter " + `${inputElement.name}` + ".";
+  } else if (inputElement.validity.tooShort) {
+    // If too short,
+    errorSpan.textContent = `${inputElement.name.charAt(0).toUpperCase() + inputElement.name.slice(1)}` + " should be at least " + `${inputElement.minLength}` + " characters.";
+  } else if (inputElement.validity.tooLong) {
+    //If too long
+    errorSpan.textContent = `${inputElement.name.charAt(0).toUpperCase() + inputElement.name.slice(1)}` + " should be less than " + `${inputElement.maxLength}`+ " characters.";
+  } else{
+            // Handle any other potential errors (e.g., typeMismatch if input type was email)
+            errorSpan.textContent = "Entered value for " + `${inputElement.id}` + " is invalid.";
+  }
+  // Add the `active` class
+  errorSpan.className = "error active";
+}
+
+titleInput.addEventListener("input",() => {
+  if (titleInput.validity.valid) {
+    titleError.textContent = ""; // Remove the message content
+    titleError.className = "error"; // Removes the `active` class
+  } else {
+    // If there is still an error, show the correct error
+    showError(titleInput, titleError);
+  }
+});
+
+authorInput.addEventListener("input",() => {
+  if (authorInput.validity.valid) {
+    authorError.textContent = ""; // Remove the message content
+    authorError.className = "error"; // Removes the `active` class
+  } else {
+    // If there is still an error, show the correct error
+    showError(authorInput, authorError);
+  }
+});
+
 /*Submit event for form*/
-  newBookForm.addEventListener("submit", (event) => {
+  addBookBtn.addEventListener("click", (event) => {
+    if (!titleInput.validity.valid) {
+        // If either is invalid, show their respective errors immediately
+        showError(titleInput, titleError);
+        // Prevent form submission if validation fails
+        event.preventDefault();
+        return;
+    }
+    if (!authorInput.validity.valid){
+        showError(authorInput, authorError);
+        // Prevent form submission if validation fails
+        event.preventDefault();
+        return;
+    }
+    //proceeds if above is valid
     let title = document.querySelector("#book-title").value;
     let author = document.querySelector("#author").value;
     let numberPages = document.querySelector("#number-pages").value;
     let unreadOrRead = document.querySelector("#unread-or-read");
+
     if (unreadOrRead.checked) {
       unreadOrRead = "Yes";
     } else {
